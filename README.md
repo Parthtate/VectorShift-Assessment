@@ -1,20 +1,5 @@
 # VectorShift Pipeline Builder
 
-<div align="center">
-
-![VectorShift Logo](https://img.shields.io/badge/VectorShift-Pipeline%20Builder-blue?style=for-the-badge)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react)](https://react.dev)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.104-009688?style=flat&logo=fastapi)](https://fastapi.tiangolo.com)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com)
-
-**A visual no-code platform for designing AI workflows and data pipelines using drag-and-drop nodes.**
-
-[Features](#features) • [Tech Stack](#tech-stack) • [Installation](#installation) • [Usage](#usage) • [Architecture](#architecture)
-
-</div>
-
----
-
 ## Overview
 
 VectorShift Pipeline Builder is an interactive web application that enables users to create complex AI pipelines visually without writing code. Users can drag nodes from a categorized sidebar onto a canvas, connect them to define data flow, and validate the pipeline structure in real-time.
@@ -270,8 +255,3 @@ This is an assessment project, but feel free to fork and experiment with your ow
 
 ---
 
-<div align="center">
-
-**Built using React, FastAPI, and ReactFlow**
-
-</div>
