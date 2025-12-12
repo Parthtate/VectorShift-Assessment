@@ -23,13 +23,12 @@ export const SubmitButton = () => {
 
       const { num_nodes, num_edges, is_dag } = response.data;
 
-      const message = `
-✅ Pipeline Analysis Complete!
+      const message = `Pipeline Analysis Complete!
 
-📊 Nodes: ${num_nodes}
-🔗 Edges: ${num_edges}
-🔄 Is DAG: ${is_dag ? 'Yes ✓' : 'No ✗ (Contains cycles)'}
-      `.trim();
+Nodes: ${num_nodes}
+Edges: ${num_edges}
+Is DAG: ${is_dag ? 'Yes ✓' : 'No ✗ (Contains cycles)'}
+      `;
 
       toast.success(message);
       
