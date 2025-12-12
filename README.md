@@ -15,38 +15,38 @@
 
 ---
 
-## 📋 Overview
+## Overview
 
 VectorShift Pipeline Builder is an interactive web application that enables users to create complex AI pipelines visually without writing code. Users can drag nodes from a categorized sidebar onto a canvas, connect them to define data flow, and validate the pipeline structure in real-time.
 
-## ✨ Features
+## Features
 
-### 🎨 Visual Canvas
+### Visual Canvas
 - **Drag-and-Drop Interface** - Intuitive node-based workflow design powered by ReactFlow
 - **Real-time Connections** - Animated edges with visual feedback
 - **Interactive Grid Layout** - Organized node categories for better usability
 - **Responsive Design** - Modern, clean UI with dark mode header
 
-### 🧩 Node Types (9 Total)
+### Node Types (9 Total)
 
 The application includes 9 configurable node types organized into 3 categories:
 
-#### **I/O Nodes**
+#### I/O Nodes
 - **Input** - Data entry points for pipelines
 - **Output** - Final result destinations
 - **Text** - Text processing with dynamic variable support (`{{variable}}` syntax)
 
-#### **Logic Nodes**
+#### Logic Nodes
 - **Filter** - Conditional routing with Pass/Reject outputs
 - **Splitter** - Split data streams into multiple outputs
 - **Aggregator** - Combine multiple input streams
 
-#### **Processing Nodes**
+#### Processing Nodes
 - **LLM** - AI language model integration (GPT-3.5, GPT-4, Claude)
 - **Transformer** - Data transformations (uppercase, lowercase, reverse)
 - **Validator** - Data validation with valid/invalid routing
 
-### ✅ Pipeline Validation
+### Pipeline Validation
 
 When you submit a pipeline, the backend performs comprehensive analysis:
 - **Node Count** - Total number of nodes in the workflow
@@ -54,7 +54,7 @@ When you submit a pipeline, the backend performs comprehensive analysis:
 - **DAG Validation** - Detects cycles using iterative Depth-First Search (DFS)
 - **User-Friendly Alerts** - Toast notifications and alerts with validation results
 
-### 🎯 Advanced Features
+### Advanced Features
 
 - **Dynamic Variable Extraction** - Text nodes automatically detect `{{variable}}` syntax and create input handles
 - **Auto-Resizing Text Areas** - Text nodes expand based on content
@@ -63,7 +63,7 @@ When you submit a pipeline, the backend performs comprehensive analysis:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 | Technology | Version | Purpose |
@@ -85,7 +85,7 @@ When you submit a pipeline, the backend performs comprehensive analysis:
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - **Node.js** (v18 or higher)
@@ -145,7 +145,7 @@ The backend will run at **http://localhost:8000**.
 
 ---
 
-## 🚀 Usage
+## Usage
 
 ### Creating a Pipeline
 
@@ -176,7 +176,7 @@ LLM → Transformer → Filter
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### Project Structure
 
@@ -211,7 +211,7 @@ vectorshift-assessment/
 
 ### Key Design Patterns
 
-#### 1. **BaseNode Abstraction**
+#### 1. BaseNode Abstraction
 All nodes inherit from `BaseNode.jsx`, which provides:
 - Dynamic handle positioning
 - Configurable field types (text, textarea, select, number)
@@ -227,7 +227,7 @@ All nodes inherit from `BaseNode.jsx`, which provides:
 />
 ```
 
-#### 2. **Configuration-Driven Nodes**
+#### 2. Configuration-Driven Nodes
 New nodes can be added by simply updating `nodeConfigs.js`:
 
 ```javascript
@@ -242,103 +242,36 @@ export const nodeConfigs = {
 };
 ```
 
-#### 3. **Context-Based State Management**
+#### 3. Context-Based State Management
 `PipelineContext` manages global state:
 - Node and edge CRUD operations
 - ReactFlow event handlers
 - Field updates and validation
 
-#### 4. **DAG Validation Algorithm**
+#### 4. DAG Validation Algorithm
 The backend uses **iterative DFS** with state tracking:
 - `0` = Unvisited
 - `1` = Visiting (in recursion stack)
 - `2` = Visited
 
-Detecting a node with state `1` indicates a **back edge** → cycle detected.
+Detecting a node with state `1` indicates a **back edge** and therefore a cycle.
 
 ---
 
-## ✅ VectorShift Assessment Completion
-
-This project fulfills all 4 parts of the VectorShift Frontend Technical Assessment:
-
-### Part 1: Node Abstraction ✓
-- Created `BaseNode.jsx` for reusable node logic
-- Config-driven architecture via `nodeConfigs.js`
-- Added 5+ new nodes (Filter, Transformer, Validator, Aggregator, Splitter)
-
-### Part 2: Styling ✓
-- Modern dark theme header with gradient logo
-- TailwindCSS 4 with consistent design system
-- Categorized sidebar with grid layout
-- Interactive node cards with hover effects
-
-### Part 3: Text Node Logic ✓
-- Auto-resizing textarea based on content
-- Dynamic variable extraction with regex (`{{variable}}`)
-- Automatic input handle generation for variables
-
-### Part 4: Backend Integration ✓
-- FastAPI endpoint `/pipelines/parse`
-- DAG validation with cycle detection
-- Toast notifications and alerts for results
-- Displays `num_nodes`, `num_edges`, and `is_dag`
-
----
-
-## 🎥 Demo
-
-### Testing DAG Validation
-
-**Valid DAG (No Cycles):**
-```
-1. Drag: Input → Text → LLM → Output
-2. Connect them sequentially
-3. Submit → Result: is_dag = true ✓
-```
-
-**Invalid DAG (Has Cycle):**
-```
-1. Drag: LLM → Transformer → Filter
-2. Connect: LLM → Transformer → Filter → LLM
-3. Submit → Result: is_dag = false ✗
-```
-
----
-
-## 🔮 Future Enhancements
-
-- [ ] **Chatbot-Specific Nodes** - Message, Intent, UserInput, API, Email nodes
-- [ ] **Preview Mode** - Test chatbot flows interactively
-- [ ] **Export/Import** - Save/load pipeline configurations as JSON
-- [ ] **Undo/Redo** - Canvas state management
-- [ ] **Node Search** - Quick find nodes in large pipelines
-- [ ] **Deployment Pipeline** - Generate embeddable widgets
-- [ ] **Analytics Dashboard** - Track pipeline execution metrics
-
----
-
-## 📄 License
+## License
 
 This project was created as part of the VectorShift Frontend Technical Assessment.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-This is an assessment project, but feel free to fork and experiment with your own enhancements!
-
----
-
-## 👤 Author
-
-**Parth Tate**
-- GitHub: [@Parthtate](https://github.com/Parthtate)
+This is an assessment project, but feel free to fork and experiment with your own enhancements.
 
 ---
 
 <div align="center">
 
-**Built with ❤️ using React, FastAPI, and ReactFlow**
+**Built using React, FastAPI, and ReactFlow**
 
 </div>
